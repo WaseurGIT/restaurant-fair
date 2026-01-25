@@ -120,7 +120,7 @@ const Login = () => {
               </span>
             </div>
 
-            <button className="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-semibold hover:bg-indigo-700 transition">
+            <button className="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-semibold hover:bg-indigo-700 transition cursor-pointer">
               Login
             </button>
           </form>
@@ -136,7 +136,7 @@ const Login = () => {
             className="w-full flex items-center justify-center gap-3 border border-gray-300 py-2.5 rounded-lg hover:bg-gray-100 transition"
           >
             <FcGoogle size={22} />
-            <span className="font-medium text-gray-700">
+            <span className="font-medium text-gray-700 cursor-pointer">
               Continue with Google
             </span>
           </button>
@@ -145,7 +145,7 @@ const Login = () => {
             Don’t have an account?{" "}
             <Link
               to="/register"
-              className="text-indigo-600 font-semibold hover:underline"
+              className="text-indigo-600 font-semibold hover:underline cursor-pointer"
             >
               Register
             </Link>
