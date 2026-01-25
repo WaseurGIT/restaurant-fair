@@ -1,8 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import navLogo from "../../assets/navLogo-removebg-preview.png";
 import ToggleTheme from "../ToggleTheme";
-import './Navbar.css'
+import "./Navbar.css";
 
 const Navbar = () => {
   const links = (
