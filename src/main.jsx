@@ -9,39 +9,42 @@ import RestaurantDetails from "./components/HomePageComponents/RestaurantRoutes/
 import Restaurants from "./components/HomePageComponents/RestaurantRoutes/Restaurants";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
+import AuthProvider from "./contexts/AuthProvider";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/register',
-        element: <Register></Register>
+        path: "/register",
+        element: <Register></Register>,
       },
       {
-        path: '/restaurants',
-        element: <Restaurants></Restaurants>
+        path: "/restaurants",
+        element: <Restaurants></Restaurants>,
       },
       {
-        path: '/restaurants/:id',
-        element: <RestaurantDetails></RestaurantDetails>
-      }
+        path: "/restaurants/:id",
+        element: <RestaurantDetails></RestaurantDetails>,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 );
