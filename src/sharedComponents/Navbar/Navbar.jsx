@@ -1,22 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import navLogo from "../../assets/navLogo-removebg-preview.png";
+import ToggleTheme from "../ToggleTheme";
+import './Navbar.css'
 
 const Navbar = () => {
   const links = (
     <>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/restaurants">Restaurants</Link></li>
-      <li><Link to="/about">About</Link></li>
-      <li><Link to="/contact">Contact</Link></li>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/restaurants">Restaurants</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/contact">Contact</Link>
+      </li>
     </>
   );
 
   return (
     <div className="w-full px-4 sm:px-6 lg:px-16">
-      <div className="navbar bg-base-100 shadow-sm rounded-xl">
-        
-        {/* LEFT */}
+      <div className="navbar bg-transparent">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -46,35 +54,24 @@ const Navbar = () => {
 
           <Link
             to="/"
-            className="flex items-center gap-1 text-orange-500 font-semibold text-lg sm:text-xl"
+            className="flex items-center gap-1 text-orange-500 font-semibold text-lg sm:text-xl momo-signature-regular"
           >
             Restaurant
-            <img
-              src={navLogo}
-              alt="Logo"
-              className="w-8 h-8 sm:w-10 sm:h-10"
-            />
+            <img src={navLogo} alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10" />
             Fair
           </Link>
         </div>
 
-        {/* CENTER (Desktop only) */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal gap-2">
-            {links}
-          </ul>
+          <ul className="menu menu-horizontal gap-2">{links}</ul>
         </div>
 
-        {/* RIGHT */}
         <div className="navbar-end">
-          <Link
-            to="/login"
-            className="btn btn-sm sm:btn-md"
-          >
+          <ToggleTheme></ToggleTheme>
+          <Link to="/login" className="btn btn-sm sm:btn-md ml-2">
             Login
           </Link>
         </div>
-
       </div>
     </div>
   );
