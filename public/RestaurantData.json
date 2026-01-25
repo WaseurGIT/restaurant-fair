@@ -1,0 +1,149 @@
+[
+  {
+    "id": 1,
+    "restaurantName": "Izumi",
+    "restaurantDisplayImage": "../src/assets/izumi.jpg",
+    "location": "Gulshan‑2, Dhaka, Bangladesh",
+    "rating": 4.4,
+    "availableFoodName": ["Salmon Sushi Platter", "Tempura", "Miso Soup"],
+    "foodPrice": [32, 18, 7],
+    "description": "Izumi is one of Dhaka’s most popular Japanese restaurants, known for its fresh sushi, sashimi, and authentic Japanese flavors.",
+    "contactNumber": "+880 1711-123456",
+    "comments": [
+      "Amazing sushi and very fresh ingredients!",
+      "A bit pricey but totally worth it."
+    ]
+  },
+  {
+    "id": 2,
+    "restaurantName": "The Canteen",
+    "restaurantDisplayImage": "https://media.timeout.com/images/105235191/750/422/image.jpg",
+    "location": "Banani, Dhaka, Bangladesh",
+    "rating": 4.3,
+    "availableFoodName": ["Beef Steak", "Chicken Alfredo", "Caesar Salad"],
+    "foodPrice": [28, 22, 12],
+    "description": "The Canteen offers a cozy modern vibe and a diverse menu of international comfort foods — perfect for casual dining with friends.",
+    "contactNumber": "+880 1712-234567",
+    "comments": [
+      "Amazing sushi and very fresh ingredients!",
+      "A bit pricey but totally worth it."
+    ]
+  },
+  {
+    "id": 3,
+    "restaurantName": "Sajna Restaurant",
+    "restaurantDisplayImage": "../src/assets/sajna.jpg",
+    "location": "Gulshan, Dhaka, Bangladesh",
+    "rating": 4.2,
+    "availableFoodName": ["Chicken Biryani", "Tandoori Platter", "Butter Naan"],
+    "foodPrice": [15, 24, 4],
+    "description": "Sajna serves delicious Indian and Bangladeshi dishes with rich flavors — biryani and tandoori items are highlights.",
+    "contactNumber": "+880 1713-345678",
+    "comments": [
+      "Amazing sushi and very fresh ingredients!",
+      "A bit pricey but totally worth it."
+    ]
+  },
+  {
+    "id": 4,
+    "restaurantName": "Panshi",
+    "restaurantDisplayImage": "../src/assets/panshi.jpg",
+    "location": "Gulshan, Dhaka, Bangladesh",
+    "rating": 4.5,
+    "availableFoodName": [
+      "Smoked Barbecue",
+      "Grilled Platter",
+      "Mac ’n’ Cheese"
+    ],
+    "foodPrice": [30, 32, 14],
+    "description": "Panshi is popular for its wood‑fired smoked barbecue, grilled dishes, and upscale casual dining experience.",
+    "contactNumber": "+880 1714-456789",
+    "comments": [
+      "Amazing sushi and very fresh ingredients!",
+      "A bit pricey but totally worth it."
+    ]
+  },
+  {
+    "id": 5,
+    "restaurantName": "The Atrium",
+    "restaurantDisplayImage": "../src/assets/atrium.jpg",
+    "location": "Dhaka, Bangladesh",
+    "rating": 4.1,
+    "availableFoodName": [
+      "Club Sandwich",
+      "Grilled Chicken",
+      "Chocolate Mousse"
+    ],
+    "foodPrice": [18, 20, 9],
+    "description": "The Atrium offers a refined dining experience with a wide menu including sandwiches, grilled mains, and European desserts.",
+    "contactNumber": "+880 1715-567890",
+    "comments": [
+      "Amazing sushi and very fresh ingredients!",
+      "A bit pricey but totally worth it."
+    ]
+  },
+  {
+    "id": 6,
+    "restaurantName": "Dhaba",
+    "restaurantDisplayImage": "../src/assets/dhaba.jpg",
+    "location": "Gulshan, Dhaka, Bangladesh",
+    "rating": 4.3,
+    "availableFoodName": ["Dal Makhani", "Tandoori Chicken", "Butter Roti"],
+    "foodPrice": [14, 20, 3],
+    "description": "Dhaba brings classic Indian street‑style flavors in a comfortable restaurant setting — rich curries and tandoori are favorites.",
+    "contactNumber": "+880 1716-678901",
+    "comments": [
+      "Amazing sushi and very fresh ingredients!",
+      "A bit pricey but totally worth it."
+    ]
+  },
+  {
+    "id": 7,
+    "restaurantName": "Sajna Arabian Restaurant",
+    "restaurantDisplayImage": "../src/assets/sajna_arabian.jpg",
+    "location": "Banani, Dhaka, Bangladesh",
+    "rating": 4.0,
+    "availableFoodName": ["Shawarma Platter", "Hummus & Pita", "Grilled Lamb"],
+    "foodPrice": [16, 9, 28],
+    "description": "Sajna Arabian serves Middle Eastern classics with rich spices and grilled favorites, ideal for flavorful group meals.",
+    "contactNumber": "+880 1717-789012",
+    "comments": [
+      "Amazing sushi and very fresh ingredients!",
+      "A bit pricey but totally worth it."
+    ]
+  },
+  {
+    "id": 8,
+    "restaurantName": "Manhattan Fish Market",
+    "restaurantDisplayImage": "../src/assets/manhattan_fish_market.jpg",
+    "location": "Banani, Dhaka, Bangladesh",
+    "rating": 4.2,
+    "availableFoodName": [
+      "Fish & Chips",
+      "Grilled Salmon",
+      "Garlic Butter Prawn"
+    ],
+    "foodPrice": [24, 35, 30],
+    "description": "Manhattan Fish Market is known for its seafood classics like fish & chips, grilled salmon, and juicy prawns.",
+    "contactNumber": "+880 1718-890123",
+    "comments": [
+      "Amazing sushi and very fresh ingredients!",
+      "A bit pricey but totally worth it."
+    ]
+  },
+  {
+    "id": 9,
+    "restaurantName": "Fruits & Veggies Healthy Restaurant",
+    "restaurantDisplayImage": "../src/assets/Fruits_veggies_healthy.jpg",
+    "location": "Dhaka, Bangladesh",
+    "rating": 4.0,
+    "availableFoodName": ["Quinoa Bowl", "Avocado Toast", "Fresh Fruit Bowl"],
+    "foodPrice": [12, 11, 9],
+    "description": "A fresh and healthy restaurant that specializes in nutritious meals like salads, fruit bowls, and health bowls.",
+    "contactNumber": "+880 1719-901234",
+    "comments": [
+      "Amazing sushi and very fresh ingredients!",
+      "A bit pricey but totally worth it."
+    ]
+  }
+]

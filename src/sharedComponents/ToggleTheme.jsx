@@ -21,9 +21,9 @@ const ToggleTheme = () => {
   return (
     <div onClick={toggleTheme} className="cursor-pointer">
       {theme === "light" ? (
-        <WiMoonAltThirdQuarter className="w-5 h-5" />
+        <WiMoonAltThirdQuarter className="w-5 h-5 text-white" />
       ) : (
-        <FiSun className="w-5 h-5" />
+        <FiSun className="w-5 h-5 text-white" />
       )}
     </div>
   );
