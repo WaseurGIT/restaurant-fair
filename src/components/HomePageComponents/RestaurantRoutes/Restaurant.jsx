@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Restaurant = ({ restaurant }) => {
   return (
-    <Link to={`/restaurants/${restaurant.id}`}>
+    <Link to={`/restaurants/${restaurant._id}`}>
       <div className=" bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition duration-300 cursor-pointer">
         <div
           className="h-48 w-full bg-cover bg-center"

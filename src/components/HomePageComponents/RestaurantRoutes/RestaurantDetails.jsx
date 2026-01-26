@@ -6,11 +6,10 @@ const RestaurantDetails = () => {
   const [restaurant, setRestaurant] = useState(null);
 
   useEffect(() => {
-    fetch("/RestaurantData.json")
+    fetch(`http://localhost:5000/restaurants/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        const found = data.find((item) => item.id === parseInt(id));
-        setRestaurant(found);
+        setRestaurant(data.data);
       });
   }, [id]);
 
@@ -69,7 +68,7 @@ const RestaurantDetails = () => {
           <h1 className="font-semibold text-gray-800 text-lg mb-2">Comments</h1>
 
           <div className="space-y-3 mb-4">
-            {restaurant.comments.map((comment, index) => (
+            {restaurant.comments?.map((comment, index) => (
               <div
                 key={index}
                 className="bg-gray-100 p-3 rounded-md text-gray-800"

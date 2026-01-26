@@ -9,7 +9,7 @@ const Restaurants = () => {
 
   useEffect(() => {
     axios
-      .get("./RestaurantData.json")
+      .get("http://localhost:5000/restaurants")
       .then((res) => setRestaurants(res.data))
       .catch((err) => console.error("Failed to load restaurants:", err));
   }, []);
