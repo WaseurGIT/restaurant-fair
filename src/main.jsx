@@ -10,6 +10,7 @@ import Restaurants from "./components/HomePageComponents/RestaurantRoutes/Restau
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import AuthProvider from "./contexts/AuthProvider";
+import AddNewRestaurantForm from "./components/HomePageComponents/RestaurantRoutes/AddNewRestaurantForm";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         path: "/restaurants/:id",
         element: <RestaurantDetails></RestaurantDetails>,
       },
+      {
+        path: '/addNewRestaurantForm',
+        element: <AddNewRestaurantForm></AddNewRestaurantForm>
+      }
     ],
   },
 ]);

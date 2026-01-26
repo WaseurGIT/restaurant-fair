@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { AuthContext } from "../contexts/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Login = () => {
   const { loginUser, googleLogin } = useContext(AuthContext);
@@ -18,6 +19,14 @@ const Login = () => {
 
     try {
       const result = await loginUser(email, password);
+
+      const userData = {
+        name: result.user.displayName,
+        email: result.user.email,
+        uid: result.user.uid
+      }
+
+      await axios.post('http://localhost:5000/users', userData)
       Swal.fire({
         toast: true,
         position: "top-end",
@@ -41,6 +50,15 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     try {
       const res = await googleLogin();
+      const userData = {
+        name: res.user.displayName || "",
+        email: res.user.email,
+        password: res.user.password,
+        uid: res.user.uid
+      }
+
+      await axios.post("http://localhost:5000/users", userData);
+      
       Swal.fire({
         toast: true,
         position: "top-end",
