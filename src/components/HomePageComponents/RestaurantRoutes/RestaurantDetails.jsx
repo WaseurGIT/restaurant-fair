@@ -1,17 +1,36 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const RestaurantDetails = () => {
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState(null);
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/restaurants/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setRestaurant(data.data);
-      });
+    axios.get(`http://localhost:5000/restaurants/${id}`).then((res) => {
+      setRestaurant(res.data.data);
+    });
   }, [id]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/restaurants/${id}/comments`)
+      .then((res) => setComments(res.data.comments));
+  }, [id]);
+
+  const handleAddComments = () => {
+    if (!newComment.trim()) return;
+    axios
+      .post(`http://localhost:5000/restaurants/${id}/comments`, {
+        comment: newComment,
+      })
+      .then(() => {
+        setComments((prev) => [...prev, newComment]);
+        setNewComment("");
+      });
+  };
 
   if (!restaurant) {
     return <div className="text-center mt-10">Loading...</div>;
@@ -68,7 +87,10 @@ const RestaurantDetails = () => {
           <h1 className="font-semibold text-gray-800 text-lg mb-2">Comments</h1>
 
           <div className="space-y-3 mb-4">
-            {restaurant.comments?.map((comment, index) => (
+            {comments.length === 0 && (
+              <p className="text-gray-500">No comments yet</p>
+            )}
+            {comments.map((comment, index) => (
               <div
                 key={index}
                 className="bg-gray-100 p-3 rounded-md text-gray-800"
@@ -79,12 +101,17 @@ const RestaurantDetails = () => {
           </div>
 
           <textarea
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
             className="border border-gray-400 w-full text-black px-3 py-2 rounded-md"
             rows={4}
             placeholder="Write your comment..."
           ></textarea>
 
-          <button className="mt-2 text-white px-6 py-2 bg-accent rounded-md">
+          <button
+            onClick={handleAddComments}
+            className="mt-2 text-white px-6 py-2 bg-accent rounded-md"
+          >
             Add Comment
           </button>
         </div>
