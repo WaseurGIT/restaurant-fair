@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../contexts/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import axios from "axios";
 
 const Register = () => {
   const { registerUser } = useContext(AuthContext);
@@ -41,6 +42,14 @@ const Register = () => {
       await updateProfile(user, {
         displayName: name,
       });
+
+      const userData = {
+        name: name,
+        email: email,
+        password: password,
+      };
+
+      await axios.post("http://localhost:5000/users", userData);
 
       Swal.fire({
         toast: true,
