@@ -19,7 +19,7 @@ const Restaurants = () => {
       <SectionTitle title={"Restaurants"} />
 
       <div className="flex items-center justify-end">
-        <Link to="./addNewRestaurantForm" className="px-12 bg-accent py-2 rounded-md">
+        <Link to="/addNewRestaurantForm" className="px-12 bg-accent py-2 rounded-md">
           Add New Restaurant
         </Link>
       </div>
