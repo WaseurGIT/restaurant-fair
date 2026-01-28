@@ -7,6 +7,10 @@ import { Link } from "react-router-dom";
 const Restaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
 
+  const removeRestaurant = (id) => {
+  setRestaurants((prev) => prev.filter((r) => r._id !== id));
+};
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/restaurants")
@@ -27,7 +31,7 @@ const Restaurants = () => {
       {/* Grid layout for cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {restaurants.map((restaurant) => (
-          <Restaurant key={restaurant.id} restaurant={restaurant} />
+          <Restaurant key={restaurant.id} restaurant={restaurant} onDelete={removeRestaurant} />
         ))}
       </div>
     </div>

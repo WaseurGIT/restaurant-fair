@@ -11,6 +11,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import AuthProvider from "./contexts/AuthProvider";
 import AddNewRestaurantForm from "./components/HomePageComponents/RestaurantRoutes/AddNewRestaurantForm";
+import UpdateRestaurantForm from "./components/HomePageComponents/RestaurantRoutes/updateRestaurantForm";
 
 const router = createBrowserRouter([
   {
@@ -39,9 +40,13 @@ const router = createBrowserRouter([
         element: <RestaurantDetails></RestaurantDetails>,
       },
       {
-        path: '/addNewRestaurantForm',
-        element: <AddNewRestaurantForm></AddNewRestaurantForm>
-      }
+        path: "/addNewRestaurantForm",
+        element: <AddNewRestaurantForm></AddNewRestaurantForm>,
+      },
+      {
+        path: "/restaurants/update/:id",
+        element: <UpdateRestaurantForm />,
+      },
     ],
   },
 ]);
