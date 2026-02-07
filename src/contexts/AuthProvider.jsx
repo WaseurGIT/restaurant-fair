@@ -45,12 +45,17 @@ const AuthProvider = ({ children }) => {
     return () => unSubscribe();
   }, []);
 
+  const isAdmin = (currentUser) => {
+    return currentUser?.email === "admin@gmail.com";
+  };
+
   const authInfo = {
     user,
     registerUser,
     loginUser,
     logOut,
     googleLogin,
+    isAdmin,
   };
 
   return (

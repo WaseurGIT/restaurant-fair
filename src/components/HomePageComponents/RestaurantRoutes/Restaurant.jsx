@@ -1,13 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Restaurant = ({ restaurant, onDelete }) => {
+  const { user, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
   const cardRef = useRef(null);
 
@@ -98,24 +100,26 @@ const Restaurant = ({ restaurant, onDelete }) => {
         </div>
 
         {/* Buttons */}
-        <div className="flex justify-between gap-4">
-          <Link
-            to={`/restaurants/update/${restaurant._id}`}
-            onClick={(e) => e.stopPropagation()}
-            className="flex-1 text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
-          >
-            Update
-          </Link>
-          <button
-            className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition cursor-pointer"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleDelete();
-            }}
-          >
-            Delete
-          </button>
-        </div>
+        {isAdmin(user) && (
+          <div className="flex justify-between gap-4">
+            <Link
+              to={`/restaurants/update/${restaurant._id}`}
+              onClick={(e) => e.stopPropagation()}
+              className="flex-1 text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+            >
+              Update
+            </Link>
+            <button
+              className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDelete();
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

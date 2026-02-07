@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, isAdmin } = useContext(AuthContext);
 
   const links = (
     <>
@@ -17,6 +17,11 @@ const Navbar = () => {
       <li>
         <Link to="/restaurants">Restaurants</Link>
       </li>
+      {isAdmin(user) && (
+        <li>
+          <Link to="/admin">Admin</Link>
+        </li>
+      )}
       <li>
         <Link to="/about">About</Link>
       </li>
