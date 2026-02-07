@@ -1,9 +1,10 @@
 import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Restaurant = ({ restaurant, onDelete }) => {
+  const navigate = useNavigate();
   const handleDelete = async () => {
     const confirm = await Swal.fire({
       title: "Are you sure?",
@@ -30,7 +31,10 @@ const Restaurant = ({ restaurant, onDelete }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
+    <div
+      onClick={() => navigate(`/restaurants/${restaurant._id}`)}
+      className="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition duration-300"
+    >
       <div
         className="h-48 w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${restaurant.restaurantDisplayImage})` }}
@@ -69,13 +73,17 @@ const Restaurant = ({ restaurant, onDelete }) => {
         <div className="flex justify-between gap-4">
           <Link
             to={`/restaurants/update/${restaurant._id}`}
+            onClick={(e) => e.stopPropagation()}
             className="flex-1 text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Update
           </Link>
           <button
             className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition cursor-pointer"
-            onClick={handleDelete}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDelete();
+            }}
           >
             Delete
           </button>

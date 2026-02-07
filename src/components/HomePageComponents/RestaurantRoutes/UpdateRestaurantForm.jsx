@@ -28,7 +28,7 @@ const UpdateRestaurantForm = () => {
       axios
         .get(`http://localhost:5000/restaurants/${id}`)
         .then((res) => {
-          console.log("Fetched restaurant data:", res.data);
+          // console.log("Fetched restaurant data:", res.data);
           if (res.data.success && res.data.data) {
             const data = res.data.data; // <-- extract the actual restaurant object
 

@@ -36,16 +36,16 @@ const router = createBrowserRouter([
         element: <Restaurants></Restaurants>,
       },
       {
+        path: "/restaurants/update/:id",
+        element: <UpdateRestaurantForm />,
+      },
+      {
         path: "/restaurants/:id",
         element: <RestaurantDetails></RestaurantDetails>,
       },
       {
         path: "/addNewRestaurantForm",
         element: <AddNewRestaurantForm></AddNewRestaurantForm>,
-      },
-      {
-        path: "/restaurants/update/:id",
-        element: <UpdateRestaurantForm />,
       },
     ],
   },
