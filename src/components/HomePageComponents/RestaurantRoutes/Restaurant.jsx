@@ -1,10 +1,37 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Restaurant = ({ restaurant, onDelete }) => {
   const navigate = useNavigate();
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      cardRef.current,
+      {
+        opacity: 0,
+        y: 60,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: "top 85%",
+          toggleActions: "play reverse play reverse",
+        },
+      },
+    );
+  }, []);
+
   const handleDelete = async () => {
     const confirm = await Swal.fire({
       title: "Are you sure?",
@@ -32,6 +59,7 @@ const Restaurant = ({ restaurant, onDelete }) => {
 
   return (
     <div
+      ref={cardRef}
       onClick={() => navigate(`/restaurants/${restaurant._id}`)}
       className="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition duration-300"
     >
