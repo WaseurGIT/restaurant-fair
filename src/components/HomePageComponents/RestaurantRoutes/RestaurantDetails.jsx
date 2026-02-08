@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const RestaurantDetails = () => {
   const { id } = useParams();
+  const { user } = useContext(AuthContext);
   const [restaurant, setRestaurant] = useState(null);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
@@ -100,20 +102,30 @@ const RestaurantDetails = () => {
             ))}
           </div>
 
-          <textarea
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            className="border border-gray-400 w-full text-black px-3 py-2 rounded-md"
-            rows={4}
-            placeholder="Write your comment..."
-          ></textarea>
+          {!user ? (
+            <div className="bg-yellow-50 border border-yellow-400 p-4 rounded-md mb-4">
+              <p className="text-yellow-800">
+                Please <strong>log in</strong> to comment on this restaurant.
+              </p>
+            </div>
+          ) : (
+            <>
+              <textarea
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+                className="border border-gray-400 w-full text-black px-3 py-2 rounded-md"
+                rows={4}
+                placeholder="Write your comment..."
+              ></textarea>
 
-          <button
-            onClick={handleAddComments}
-            className="mt-2 text-white px-6 py-2 bg-accent rounded-md"
-          >
-            Add Comment
-          </button>
+              <button
+                onClick={handleAddComments}
+                className="mt-2 text-white px-6 py-2 bg-accent rounded-md"
+              >
+                Add Comment
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>
